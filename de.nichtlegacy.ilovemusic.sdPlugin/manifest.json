@@ -1,0 +1,196 @@
+{
+  "$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+  "Name": "ILOVEMusic",
+  "Version": "0.1.0.0",
+  "Author": "nichtlegacy",
+  "Description": "Remote-control the ILOVEMusic macOS menubar app: playback, channel selection, live now-playing artwork, and app volume controls.",
+  "Category": "ILOVEMusic",
+  "CategoryIcon": "imgs/plugin/category-icon",
+  "CodePath": "bin/plugin.js",
+  "Icon": "imgs/plugin/marketplace",
+  "SDKVersion": 2,
+  "Software": {
+    "MinimumVersion": "6.5"
+  },
+  "OS": [
+    {
+      "Platform": "mac",
+      "MinimumVersion": "14"
+    }
+  ],
+  "Nodejs": {
+    "Version": "20"
+  },
+  "UUID": "de.nichtlegacy.ilovemusic",
+  "Actions": [
+    {
+      "Name": "Play / Pause",
+      "UUID": "de.nichtlegacy.ilovemusic.toggle",
+      "Icon": "imgs/actions/toggle/icon",
+      "Tooltip": "Toggle playback in the ILOVEMusic menubar app.",
+      "Controllers": [
+        "Keypad"
+      ],
+      "DisableAutomaticStates": true,
+      "States": [
+        {
+          "Image": "imgs/actions/toggle/play",
+          "TitleAlignment": "middle",
+          "Name": "Play"
+        },
+        {
+          "Image": "imgs/actions/toggle/pause",
+          "TitleAlignment": "middle",
+          "Name": "Pause"
+        }
+      ],
+      "UserTitleEnabled": false
+    },
+    {
+      "Name": "Next Channel",
+      "UUID": "de.nichtlegacy.ilovemusic.next",
+      "Icon": "imgs/actions/next/icon",
+      "Tooltip": "Jump to the next ILOVEMusic channel.",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "imgs/actions/next/key",
+          "TitleAlignment": "middle"
+        }
+      ]
+    },
+    {
+      "Name": "Random Channel",
+      "UUID": "de.nichtlegacy.ilovemusic.random",
+      "Icon": "imgs/actions/random/icon",
+      "Tooltip": "Pick a random ILOVEMusic channel.",
+      "PropertyInspectorPath": "ui/random.html",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "imgs/actions/random/key",
+          "TitleAlignment": "middle"
+        }
+      ]
+    },
+    {
+      "Name": "Select Channel",
+      "UUID": "de.nichtlegacy.ilovemusic.select",
+      "Icon": "imgs/actions/select/icon",
+      "Tooltip": "Tune to a specific ILOVEMusic channel.",
+      "PropertyInspectorPath": "ui/select-channel.html",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "imgs/actions/select/key",
+          "TitleAlignment": "middle"
+        }
+      ],
+      "UserTitleEnabled": false
+    },
+    {
+      "Name": "Now Playing",
+      "UUID": "de.nichtlegacy.ilovemusic.nowplaying",
+      "Icon": "imgs/actions/nowplaying/icon",
+      "Tooltip": "Show the current ILOVEMusic station and song.",
+      "PropertyInspectorPath": "ui/now-playing.html",
+      "Controllers": [
+        "Keypad"
+      ],
+      "DisableAutomaticStates": true,
+      "States": [
+        {
+          "Image": "imgs/actions/nowplaying/key",
+          "TitleAlignment": "bottom",
+          "FontSize": 8,
+          "FontStyle": "Bold"
+        }
+      ],
+      "UserTitleEnabled": false,
+      "SupportedInMultiActions": false
+    },
+    {
+      "Name": "Favorite",
+      "UUID": "de.nichtlegacy.ilovemusic.favorite",
+      "Icon": "imgs/actions/favorite/icon",
+      "Tooltip": "Favorite or unfavorite the current ILOVEMusic channel.",
+      "Controllers": [
+        "Keypad"
+      ],
+      "DisableAutomaticStates": true,
+      "States": [
+        {
+          "Image": "imgs/actions/favorite/off",
+          "TitleAlignment": "middle",
+          "Name": "Not Favorite"
+        },
+        {
+          "Image": "imgs/actions/favorite/on",
+          "TitleAlignment": "middle",
+          "Name": "Favorite"
+        }
+      ],
+      "UserTitleEnabled": false
+    },
+    {
+      "Name": "Volume Step",
+      "UUID": "de.nichtlegacy.ilovemusic.volumestep",
+      "Icon": "imgs/actions/volume-step/icon",
+      "Tooltip": "Step the ILOVEMusic volume up or down by a configurable amount.",
+      "PropertyInspectorPath": "ui/volume-step.html",
+      "Controllers": [
+        "Keypad"
+      ],
+      "DisableAutomaticStates": true,
+      "States": [
+        {
+          "Image": "imgs/actions/volume-step/up",
+          "TitleAlignment": "middle",
+          "Name": "Up"
+        },
+        {
+          "Image": "imgs/actions/volume-step/down",
+          "TitleAlignment": "middle",
+          "Name": "Down"
+        }
+      ],
+      "UserTitleEnabled": false
+    },
+    {
+      "Name": "Volume",
+      "UUID": "de.nichtlegacy.ilovemusic.volume",
+      "Icon": "imgs/actions/volume/icon",
+      "Tooltip": "Show ILOVEMusic volume. Tap to mute / unmute.",
+      "PropertyInspectorPath": "ui/volume.html",
+      "Controllers": [
+        "Keypad"
+      ],
+      "DisableAutomaticStates": true,
+      "States": [
+        {
+          "Image": "imgs/actions/volume/unmuted",
+          "TitleAlignment": "bottom",
+          "FontSize": 10,
+          "FontStyle": "Bold",
+          "Name": "Unmuted"
+        },
+        {
+          "Image": "imgs/actions/volume/muted",
+          "TitleAlignment": "bottom",
+          "FontSize": 10,
+          "FontStyle": "Bold",
+          "Name": "Muted"
+        }
+      ],
+      "UserTitleEnabled": false,
+      "SupportedInMultiActions": false
+    }
+  ],
+  "URL": "https://github.com/nichtlegacy/ilovemusic_streamdeck"
+}

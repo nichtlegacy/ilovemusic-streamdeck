@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Volume</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="shared/pi.css" />
+    <script src="shared/pi.js"></script>
+  </head>
+  <body>
+    <main class="panel">
+      <section class="field">
+        <span class="field-label">Label</span>
+        <label class="toggle">
+          <input type="checkbox" data-setting="showLabel" data-default="false" />
+          <span>
+            <span class="toggle-title">Show “Vol” label</span>
+            <span class="toggle-copy">Prefixes the value with a compact volume label.</span>
+          </span>
+        </label>
+      </section>
+
+      <section class="field">
+        <span class="field-label">Large Value</span>
+        <label class="toggle">
+          <input type="checkbox" data-setting="bigPercent" data-default="false" />
+          <span>
+            <span class="toggle-title">Use stacked percent layout</span>
+            <span class="toggle-copy">Spreads the number across two lines for a larger readout.</span>
+          </span>
+        </label>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Typecheck, test, pack
+    # The plugin is plain TypeScript and streamdeck pack is a Node CLI, so none
+    # of this needs macOS even though the plugin itself drives a macOS app.
+    runs-on: ubuntu-24.04
+
+    steps:
+      # Actions are pinned to a commit SHA; a moving tag would let a compromised
+      # action run with this repository's token.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          # Matches Nodejs.Version in the manifest, which is the runtime Stream
+          # Deck actually starts the plugin with.
+          node-version: "20"
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Manifest version matches package.json
+        run: npm run version:check
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Test
+        run: npm test
+
+      - name: Pack
+        run: ./Scripts/package.sh
+
+      - name: Upload plugin
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: streamDeckPlugin
+          path: dist/*.streamDeckPlugin
+          if-no-files-found: error
