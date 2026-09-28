@@ -61,8 +61,8 @@ jobs:
           notes_file=".github/release-notes/${TAG#v}.md"
           if [ -f "$notes_file" ]; then
             gh release create "$TAG" dist/*.streamDeckPlugin \
-              --title "ILOVEMusic Stream Deck ${TAG#v}" --notes-file "$notes_file"
+              --title "ILoveMusic Stream Deck ${TAG#v}" --notes-file "$notes_file"
           else
             gh release create "$TAG" dist/*.streamDeckPlugin \
-              --title "ILOVEMusic Stream Deck ${TAG#v}" --generate-notes
+              --title "ILoveMusic Stream Deck ${TAG#v}" --generate-notes
           fi

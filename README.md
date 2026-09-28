@@ -1,8 +1,8 @@
 <div align="center">
 
-# ILOVEMusic für Stream Deck
+# ILoveMusic für Stream Deck
 
-**Stream-Deck-Plugin für die ILOVEMusic-Menüleisten-App unter macOS.**
+**Stream-Deck-Plugin für die ILoveMusic-Menüleisten-App unter macOS.**
 <br>
 Wiedergabe, Sender, Favorit und Lautstärke auf den Tasten – über einen lokalen, token-gesicherten Control-Kanal. Kein Account, keine Cloud, kein eigenes Backend.
 
@@ -15,13 +15,13 @@ Wiedergabe, Sender, Favorit und Lautstärke auf den Tasten – über einen lokal
 
 [Überblick](#überblick) • [Installation](#installation) • [Actions](#actions) • [Verbindung](#verbindung) • [Control-Protokoll](#control-protokoll) • [Architektur](#architektur) • [Entwicklung](#entwicklung) • [Release](#release)
 
-<img src="docs/screenshots/hero.png" alt="ILOVEMusic-Actions auf einem Stream Deck" width="760">
+<img src="docs/screenshots/hero.png" alt="ILoveMusic-Actions auf einem Stream Deck" width="760">
 
 </div>
 
 ## Überblick
 
-Dieses Plugin steuert die **ILOVEMusic-App für macOS** vom Stream Deck aus. Es bringt acht Actions mit: Play/Pause, nächster Sender, Zufallssender, Sender wählen, Now Playing mit Live-Cover, Favorit, Lautstärke und Lautstärke-Schritt.
+Dieses Plugin steuert die **ILoveMusic-App für macOS** vom Stream Deck aus. Es bringt acht Actions mit: Play/Pause, nächster Sender, Zufallssender, Sender wählen, Now Playing mit Live-Cover, Favorit, Lautstärke und Lautstärke-Schritt.
 
 Das Plugin bleibt bewusst **dünn**. Es hält keine Streams, kennt keine Senderlogik und speichert keinen abgeleiteten Zustand: Wiedergabe, Katalog, Favoriten und Lautstärke gehören der macOS-App. Das Plugin liest ihren Zustand und schickt Kommandos – über `127.0.0.1`, mit einem Bearer-Token, das die App bei jedem Start neu vergibt.
 
@@ -37,26 +37,26 @@ Das Plugin bleibt bewusst **dünn**. Es hält keine Streams, kennt keine Senderl
 | | |
 | --- | --- |
 | **Stream Deck Software** | 6.5 oder neuer (`Software.MinimumVersion` im Manifest) |
-| **macOS** | 14 oder neuer – dieselbe Untergrenze wie die ILOVEMusic-App, ohne die das Plugin nichts steuern kann |
+| **macOS** | 14 oder neuer – dieselbe Untergrenze wie die ILoveMusic-App, ohne die das Plugin nichts steuern kann |
 | **Node.js** | 20 – die Laufzeit, mit der Stream Deck das Plugin startet (`Nodejs.Version`) |
-| **ILOVEMusic für macOS** | zwingend erforderlich, muss laufen |
+| **ILoveMusic für macOS** | zwingend erforderlich, muss laufen |
 
 ### Die Begleit-App
 
 <div align="center">
-<img src="docs/screenshots/menubar-app.png" alt="ILOVEMusic-Menüleisten-App unter macOS" width="300">
+<img src="docs/screenshots/menubar-app.png" alt="ILoveMusic-Menüleisten-App unter macOS" width="300">
 </div>
 
 Ohne die App tut das Plugin nichts – sie betreibt den lokalen Control-Server, den das Plugin anspricht. Alle Tasten zeigen dann `Offline`.
 
-**App-Repository: [nichtlegacy/ilovemusic_mac](https://github.com/nichtlegacy/ilovemusic_mac)**
+**App-Repository: [nichtlegacy/ilovemusic-macos](https://github.com/nichtlegacy/ilovemusic-macos)**
 
 ## Installation
 
-1. ILOVEMusic für macOS installieren und starten. Der Control-Server läuft automatisch, solange die App aktiv ist.
-2. Die Datei `de.nichtlegacy.ilovemusic.streamDeckPlugin` aus den [Releases](https://github.com/nichtlegacy/ilovemusic_streamdeck/releases) herunterladen.
+1. ILoveMusic für macOS installieren und starten. Der Control-Server läuft automatisch, solange die App aktiv ist.
+2. Die Datei `de.nichtlegacy.ilovemusic.streamDeckPlugin` aus den [Releases](https://github.com/nichtlegacy/ilovemusic-streamdeck/releases) herunterladen.
 3. Doppelklick darauf – die Stream Deck Software übernimmt die Installation.
-4. Im Stream-Deck-Editor die Kategorie **ILOVEMusic** öffnen und Actions auf Tasten ziehen.
+4. Im Stream-Deck-Editor die Kategorie **ILoveMusic** öffnen und Actions auf Tasten ziehen.
 5. Bei *Select Channel*, *Random Channel*, *Now Playing*, *Volume* und *Volume Step* im Property Inspector die Einstellungen setzen.
 
 Läuft die App, füllen sich die Tasten innerhalb weniger Sekunden mit Titel, Zustand und Cover.
@@ -163,7 +163,7 @@ Ist die App gar nicht gestartet, existiert keine Handshake-Datei und das Plugin 
 
 ## Control-Protokoll
 
-Alle Requests brauchen `Authorization: Bearer <token>` aus `control.json`. Serverseitig implementiert in [`ControlServer.swift`](https://github.com/nichtlegacy/ilovemusic_mac/blob/main/Sources/ILoveMusic/Services/ControlServer.swift).
+Alle Requests brauchen `Authorization: Bearer <token>` aus `control.json`. Serverseitig implementiert in [`ControlServer.swift`](https://github.com/nichtlegacy/ilovemusic-macos/blob/main/Sources/ILoveMusic/Services/ControlServer.swift).
 
 | Methode | Pfad | Body | Antwort |
 | --- | --- | --- | --- |
@@ -197,7 +197,7 @@ flowchart TD
     A --> IC["image-cache<br/>render-cache"]
     R --> CL["src/control/<br/>validierter Client"]
     CL --> HS["handshake.ts<br/>control.json"]
-    CL --> APP["ILOVEMusic macOS<br/>127.0.0.1 + Bearer-Token"]
+    CL --> APP["ILoveMusic macOS<br/>127.0.0.1 + Bearer-Token"]
     HS -.liest.-> APP
 ```
 
@@ -216,8 +216,8 @@ Actions halten keine eigenen Timer und keine eigene Meinung zur Erreichbarkeit �
 ## Entwicklung
 
 ```bash
-git clone https://github.com/nichtlegacy/ilovemusic_streamdeck.git
-cd ilovemusic_streamdeck
+git clone https://github.com/nichtlegacy/ilovemusic-streamdeck.git
+cd ilovemusic-streamdeck
 
 npm install
 npx streamdeck link de.nichtlegacy.ilovemusic.sdPlugin
@@ -293,7 +293,7 @@ git push && git push --tags
 ## Projektstruktur
 
 ```text
-ilovemusic_streamdeck/
+ilovemusic-streamdeck/
 ├── package.json                 # einzige Versionsquelle, npm-Skripte
 ├── rolldown.config.ts           # Plugin-Bundle (+ Neustart im Watch-Modus)
 ├── rolldown.tests.config.ts     # Test-Bundle nach .test-dist/
@@ -331,11 +331,11 @@ ilovemusic_streamdeck/
 
 - Stream Deck SDK: <https://docs.elgato.com/streamdeck/sdk/>
 - Stream Deck WebSocket-UI-Referenz: <https://docs.elgato.com/streamdeck/sdk/references/websocket/ui/>
-- ILOVEMusic für macOS: <https://github.com/nichtlegacy/ilovemusic_mac>
+- ILoveMusic für macOS: <https://github.com/nichtlegacy/ilovemusic-macos>
 
 ## Lizenz & Haftungsausschluss
 
 Veröffentlicht unter der [MIT-Lizenz](LICENSE) – © 2026 nichtlegacy.
 
-Inoffizielles, nicht-kommerzielles Hobbyprojekt. „ILOVEMusic" / „I Love Music" sowie Sender, Logos und Marken gehören ihren jeweiligen Inhabern; dieses Plugin steht in keiner Verbindung zu I Love Music GmbH. „Stream Deck" ist eine Marke der Elgato/Corsair.
+Inoffizielles, nicht-kommerzielles Hobbyprojekt. „ILoveMusic" / „I Love Music" sowie Sender, Logos und Marken gehören ihren jeweiligen Inhabern; dieses Plugin steht in keiner Verbindung zu I Love Music GmbH. „Stream Deck" ist eine Marke der Elgato/Corsair.
 </content>

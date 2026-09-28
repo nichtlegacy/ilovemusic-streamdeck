@@ -1,10 +1,10 @@
 {
   "$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
-  "Name": "ILOVEMusic",
+  "Name": "ILoveMusic",
   "Version": "0.1.0.0",
   "Author": "nichtlegacy",
-  "Description": "Remote-control the ILOVEMusic macOS menubar app: playback, channel selection, live now-playing artwork, and app volume controls.",
-  "Category": "ILOVEMusic",
+  "Description": "Remote-control the ILoveMusic macOS menubar app: playback, channel selection, live now-playing artwork, and app volume controls.",
+  "Category": "ILoveMusic",
   "CategoryIcon": "imgs/plugin/category-icon",
   "CodePath": "bin/plugin.js",
   "Icon": "imgs/plugin/marketplace",
@@ -27,7 +27,7 @@
       "Name": "Play / Pause",
       "UUID": "de.nichtlegacy.ilovemusic.toggle",
       "Icon": "imgs/actions/toggle/icon",
-      "Tooltip": "Toggle playback in the ILOVEMusic menubar app.",
+      "Tooltip": "Toggle playback in the ILoveMusic menubar app.",
       "Controllers": [
         "Keypad"
       ],
@@ -50,7 +50,7 @@
       "Name": "Next Channel",
       "UUID": "de.nichtlegacy.ilovemusic.next",
       "Icon": "imgs/actions/next/icon",
-      "Tooltip": "Jump to the next ILOVEMusic channel.",
+      "Tooltip": "Jump to the next ILoveMusic channel.",
       "Controllers": [
         "Keypad"
       ],
@@ -65,7 +65,7 @@
       "Name": "Random Channel",
       "UUID": "de.nichtlegacy.ilovemusic.random",
       "Icon": "imgs/actions/random/icon",
-      "Tooltip": "Pick a random ILOVEMusic channel.",
+      "Tooltip": "Pick a random ILoveMusic channel.",
       "PropertyInspectorPath": "ui/random.html",
       "Controllers": [
         "Keypad"
@@ -81,7 +81,7 @@
       "Name": "Select Channel",
       "UUID": "de.nichtlegacy.ilovemusic.select",
       "Icon": "imgs/actions/select/icon",
-      "Tooltip": "Tune to a specific ILOVEMusic channel.",
+      "Tooltip": "Tune to a specific ILoveMusic channel.",
       "PropertyInspectorPath": "ui/select-channel.html",
       "Controllers": [
         "Keypad"
@@ -98,7 +98,7 @@
       "Name": "Now Playing",
       "UUID": "de.nichtlegacy.ilovemusic.nowplaying",
       "Icon": "imgs/actions/nowplaying/icon",
-      "Tooltip": "Show the current ILOVEMusic station and song.",
+      "Tooltip": "Show the current ILoveMusic station and song.",
       "PropertyInspectorPath": "ui/now-playing.html",
       "Controllers": [
         "Keypad"
@@ -119,7 +119,7 @@
       "Name": "Favorite",
       "UUID": "de.nichtlegacy.ilovemusic.favorite",
       "Icon": "imgs/actions/favorite/icon",
-      "Tooltip": "Favorite or unfavorite the current ILOVEMusic channel.",
+      "Tooltip": "Favorite or unfavorite the current ILoveMusic channel.",
       "Controllers": [
         "Keypad"
       ],
@@ -142,7 +142,7 @@
       "Name": "Volume Step",
       "UUID": "de.nichtlegacy.ilovemusic.volumestep",
       "Icon": "imgs/actions/volume-step/icon",
-      "Tooltip": "Step the ILOVEMusic volume up or down by a configurable amount.",
+      "Tooltip": "Step the ILoveMusic volume up or down by a configurable amount.",
       "PropertyInspectorPath": "ui/volume-step.html",
       "Controllers": [
         "Keypad"
@@ -166,7 +166,7 @@
       "Name": "Volume",
       "UUID": "de.nichtlegacy.ilovemusic.volume",
       "Icon": "imgs/actions/volume/icon",
-      "Tooltip": "Show ILOVEMusic volume. Tap to mute / unmute.",
+      "Tooltip": "Show ILoveMusic volume. Tap to mute / unmute.",
       "PropertyInspectorPath": "ui/volume.html",
       "Controllers": [
         "Keypad"
@@ -192,5 +192,5 @@
       "SupportedInMultiActions": false
     }
   ],
-  "URL": "https://github.com/nichtlegacy/ilovemusic_streamdeck"
+  "URL": "https://github.com/nichtlegacy/ilovemusic-streamdeck"
 }

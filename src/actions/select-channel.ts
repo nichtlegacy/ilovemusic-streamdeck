@@ -143,7 +143,7 @@ function stationItemsForSnapshot(snapshot: RuntimeSnapshot<ControlStation[]>): D
   }
 
   if (snapshot.status === "offline") {
-    return offlineStationItems("ILOVEMusic app not reachable");
+    return offlineStationItems("ILoveMusic app not reachable");
   }
 
   return [];
