@@ -1,6 +1,6 @@
 {
   "name": "ilovemusic-streamdeck",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Stream Deck plugin that controls the ILoveMusic macOS menubar app.",
   "type": "module",
   "scripts": {

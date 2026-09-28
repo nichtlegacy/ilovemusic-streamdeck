@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
   "Name": "ILoveMusic",
-  "Version": "0.1.0.0",
+  "Version": "0.1.1.0",
   "Author": "nichtlegacy",
   "Description": "Remote-control the ILoveMusic macOS menubar app: playback, channel selection, live now-playing artwork, and app volume controls.",
   "Category": "ILoveMusic",
